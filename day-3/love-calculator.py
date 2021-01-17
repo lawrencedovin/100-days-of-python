@@ -1,11 +1,9 @@
 print('Welcome to the Love Calculator!')
-your_name = input('What is your name?\n ').lower()
-partner_name = input('What is their name?\n ').lower()
-combined_names = your_name + partner_name
+your_name = input('What is your name?\n ')
+partner_name = input('What is their name?\n ')
+combined_names = (your_name + partner_name).lower()
 
-love_scores = 0
-true_count = 0
-love_count = 0
+love_scores = true_count = love_count = 0
 
 for char in combined_names:
     if char in 'true':
