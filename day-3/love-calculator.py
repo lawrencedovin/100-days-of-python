@@ -9,7 +9,7 @@ love_count = 0
 
 for char in combined_names:
     if char in 'true':
-         true_count += 1
+        true_count += 1
     if char in 'love':
         love_count += 1
 
