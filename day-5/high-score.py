@@ -3,7 +3,6 @@ student_scores = [int(score) for score in student_scores]
 
 high_score = 0
 for score in student_scores:
-    if score > high_score:
-        high_score = score
-
+    high_score = score if score > high_score else high_score
+        
 print(high_score)
