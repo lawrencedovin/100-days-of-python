@@ -1,13 +1,13 @@
 ################### Scope ####################
 
-enemies = 1
+# enemies = 1
 
-def increase_enemies():
-  enemies = 2
-  print(f"enemies inside function: {enemies}")
+# def increase_enemies():
+#   enemies = 2
+#   print(f"enemies inside function: {enemies}")
 
-increase_enemies()
-print(f"enemies outside function: {enemies}")
+# increase_enemies()
+# print(f"enemies outside function: {enemies}")
 
 # Local Scope
 # def drink_potion():
@@ -31,11 +31,24 @@ print(f"enemies outside function: {enemies}")
 
 # There is no Block Scope
 
-game_level = 3
-def create_enemy():
-  enemies = ["Skeleton", "Zombie", "Alien"]
-  if game_level < 5:
-    new_enemy = enemies[0]
-  print(new_enemy)
+# game_level = 3
+# def create_enemy():
+#   enemies = ["Skeleton", "Zombie", "Alien"]
+#   if game_level < 5:
+#     new_enemy = enemies[0]
+#   print(new_enemy)
 
-create_enemy()
+# create_enemy()
+
+# Modifying Global Scope
+
+enemies = 1
+
+def increase_enemies():
+  # global enemies
+  # enemies += 1
+  print(f"enemies inside function: {enemies}")
+  return enemies + 1
+
+enemies = increase_enemies()
+print(f"enemies outside function: {enemies}")
