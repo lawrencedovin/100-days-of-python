@@ -1,3 +1,4 @@
+from art import logo
 #Number Guessing Game Objectives:
 
 # Include an ASCII art logo.
