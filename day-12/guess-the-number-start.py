@@ -1,5 +1,6 @@
 from art import logo
 from random import randint
+import os
 
 def check_answer(guess, answer):
     if guess > answer:
@@ -8,6 +9,10 @@ def check_answer(guess, answer):
         print(f"{guess} is too low.")
     else:
         print(f"Great job! you guessed the correct answer which was {answer}")
+
+def clear():
+    os.system("clear") # Linux - OSX
+    os.system("cls") # Windows
 
 def guess_number():
     print(logo)
@@ -29,6 +34,7 @@ def guess_number():
 
     if attempts == 0: print('You lose.')
     play_again = input("Play again? 'y' or 'n': ").lower()
+    clear()
     if play_again == 'y': guess_number()
 
 guess_number()
