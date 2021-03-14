@@ -38,8 +38,16 @@ def print_resources(water, milk, coffee, money):
     print(f'Coffee: {coffee}g')
     print(f'Money: ${money}')
 
+def check_resource(coffee, resources):
+    for key, value in resources.items():
+        if value == 0:
+            return f'Sorry there is not enough {key}'
+    return f'Enjoy your {coffee}'
+
 
 choice = input('What would you like? (espresso/latte/cappuccino): ')
 
 if(choice == 'report'): 
     print_resources(resources["water"], resources["milk"], resources["coffee"], money)
+elif(choice == 'espresso' or choice == 'latte' or choice == 'cappuccino'):
+    print(check_resource(choice, resources))
