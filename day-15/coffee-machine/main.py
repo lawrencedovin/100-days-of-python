@@ -30,3 +30,16 @@ resources = {
     "coffee": 100,
 }
 
+money = 0
+
+def print_resources(water, milk, coffee, money):
+    print(f'Water: {water}ml')
+    print(f'Milk: {milk}ml')
+    print(f'Coffee: {coffee}g')
+    print(f'Money: ${money}')
+
+
+choice = input('What would you like? (espresso/latte/cappuccino): ')
+
+if(choice == 'report'): 
+    print_resources(resources["water"], resources["milk"], resources["coffee"], money)
