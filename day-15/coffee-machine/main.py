@@ -28,26 +28,42 @@ resources = {
     "water": 300,
     "milk": 200,
     "coffee": 100,
+    "vending_money": 0
 }
 
-money = 0
-
-def print_resources(water, milk, coffee, money):
+def print_resources(water, milk, coffee, vending_money):
     print(f'Water: {water}ml')
     print(f'Milk: {milk}ml')
     print(f'Coffee: {coffee}g')
-    print(f'Money: ${money}')
+    print(f'Vending Money: ${vending_money}')
 
 def check_resource(coffee, resources):
     for key, value in resources.items():
         if value == 0:
+            if key == "vending_money":
+                return f"Sorry there isn't enough change in the machine. Money refunded"
             return f'Sorry there is not enough {key}'
+
     return f'Enjoy your {coffee}'
+
+def total_coins(quarters, dimes, nickels, pennies):
+    return (quarters * 0.25) + (dimes * 0.1) + (nickels * 0.05) + (pennies * 0.01)
+
+def check_change(total_coins, cost_of_drink, vending_money):
+    if total_coins > cost_of_drink:
+        change = total_coins - cost_of_drink
+        if vending_money > change:
+            print(f'Here is ${change} in change')
+        else:
+            print("Sorry there isn't enough change in the machine. Money refunded")
 
 
 choice = input('What would you like? (espresso/latte/cappuccino): ')
 
 if(choice == 'report'): 
-    print_resources(resources["water"], resources["milk"], resources["coffee"], money)
+    print_resources(resources["water"], resources["milk"], resources["coffee"], resources["vending_money"])
 elif(choice == 'espresso' or choice == 'latte' or choice == 'cappuccino'):
     print(check_resource(choice, resources))
+    total_coins = total_coins(2,3,4,5)
+    cost_of_drink = MENU[choice]["cost"]
+    check_change(total_coins, cost_of_drink, resources["vending_money"])
