@@ -54,6 +54,8 @@ def check_change(total_coins, cost_of_drink, vending_money):
         change = round(total_coins - cost_of_drink, 2)
         if vending_money > change:
             print(f'Here is ${change} in change')
+            vending_money = (vending_money + cost_of_drink - change) 
+            print(f'New vending_money {vending_money}')
     else:
         print("Sorry there isn't enough change in the machine. Money refunded")
 
