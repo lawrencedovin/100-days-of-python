@@ -1,3 +1,5 @@
+from clear_stuff import clear
+
 MENU = {
     "espresso": {
         "ingredients": {
@@ -55,20 +57,27 @@ def check_change(total_coins, cost_of_drink, vending_money):
         if vending_money > change:
             print(f'Here is ${change} in change')
             vending_money = (vending_money + cost_of_drink - change) 
-            print(f'New vending_money {vending_money}')
     else:
         print("Sorry there isn't enough change in the machine. Money refunded")
 
 
-choice = input('What would you like? (espresso/latte/cappuccino): ')
+continue_buying = True
 
-if(choice == 'report'): 
-    print_resources(resources["water"], resources["milk"], resources["coffee"], resources["vending_money"])
-elif(choice == 'espresso' or choice == 'latte' or choice == 'cappuccino'):
-    quarters = int(input('How many quarters?: '))
-    dimes = int(input('How many dimes?: '))
-    nickels = int(input('How many nickels?: '))
-    pennies = int(input('How many pennies?: '))
-    total_coins = total_coins(quarters, dimes, nickels, pennies)
-    cost_of_drink = MENU[choice]["cost"]
-    check_change(total_coins, cost_of_drink, resources["vending_money"])
+while(continue_buying):
+    clear()
+    choice = input('What would you like? (espresso/latte/cappuccino): ')
+
+    if(choice == 'report'): 
+        print_resources(resources["water"], resources["milk"], resources["coffee"], resources["vending_money"])
+    elif(choice == 'espresso' or choice == 'latte' or choice == 'cappuccino'):
+        quarters = int(input('How many quarters?: '))
+        dimes = int(input('How many dimes?: '))
+        nickels = int(input('How many nickels?: '))
+        pennies = int(input('How many pennies?: '))
+        coins = total_coins(quarters, dimes, nickels, pennies)
+        cost_of_drink = MENU[choice]["cost"]
+        check_change(coins, cost_of_drink, resources["vending_money"])
+    
+    choice = input("Make anymore further choices? Type 'yes' or 'no' > ").lower()
+    if choice != "yes":
+        break
