@@ -63,6 +63,10 @@ choice = input('What would you like? (espresso/latte/cappuccino): ')
 if(choice == 'report'): 
     print_resources(resources["water"], resources["milk"], resources["coffee"], resources["vending_money"])
 elif(choice == 'espresso' or choice == 'latte' or choice == 'cappuccino'):
-    total_coins = total_coins(5,3,4,10)
+    quarters = int(input('How many quarters?: '))
+    dimes = int(input('How many dimes?: '))
+    nickels = int(input('How many nickels?: '))
+    pennies = int(input('How many pennies?: '))
+    total_coins = total_coins(quarters, dimes, nickels, pennies)
     cost_of_drink = MENU[choice]["cost"]
     check_change(total_coins, cost_of_drink, resources["vending_money"])
